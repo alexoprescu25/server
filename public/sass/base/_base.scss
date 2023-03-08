@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: $main-font;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	caption-side: bottom;
+}
+
+textarea {
+	white-space: revert;
+}
+
+:where(button, [type='button' i], [type='reset' i], [type='submit' i]) {
+	-webkit-appearance: button;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    outline: none;
+    background-color: rgb(242, 242, 242) !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+@include desktop {
+	.only-mobile {
+	  display: none !important;
+	}
+}
+
+@media screen and (max-width: #{$desktop-width - 1}) {
+	.only-desktop {
+		display: none !important;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

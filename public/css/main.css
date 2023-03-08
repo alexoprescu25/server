@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body * {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  caption-side: bottom;
+}
+
+textarea {
+  white-space: revert;
+}
+
+:where(button, [type=button i], [type=reset i], [type=submit i]) {
+  -webkit-appearance: button;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  outline: none;
+  background-color: rgb(242, 242, 242) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .only-mobile {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .only-desktop {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 100;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+h5 {
+  font-size: 12px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+h3,
+h4,
+h5 {
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=main.css.map */

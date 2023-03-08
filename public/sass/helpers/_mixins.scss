@@ -1,0 +1,173 @@
+//MEDIA QUERIES
+
+@mixin mobile {
+    @media screen and (max-width: #{$tablet-width - 1}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin primary-input($max-width: 100%, $height: 56px) {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $max-width;
+    height: $height;
+    vertical-align: middle;
+    line-height: $height;
+    border: 1px solid rgb(112, 112, 112);
+    @include rounded($small-border-radius);
+    @include transition($input-transition);
+    font {
+        family: inherit;
+        size: $font-16;
+        weight: $large-weight;
+    }
+}
+
+@mixin search-input($max-width: 100%, $height: 49px) {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $max-width;
+    height: $height;
+    vertical-align: middle;
+    line-height: $height;
+    border: 1px solid rgb(112, 112, 112);
+    box-shadow: 0px 3px 6px #00000029;
+    @include rounded($full-border-radius);
+    @include transition($main-transition);
+    font {
+        family: inherit;
+        size: $font-16;
+        weight: $large-weight;
+    }
+}
+
+@mixin rounded($border) {
+    -webkit-border-radius: $border;
+	-moz-border-radius: $border;
+	border-radius: $border;
+}
+
+@mixin circle($width, $height) {
+    width: $width;
+    height: $height;
+    @include rounded(50%);
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin appearance($type) {
+    appearance: $type;
+	-moz-appearance: $type;
+	-webkit-appearance: $type;
+}
+
+@mixin center-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hidden {
+    visibility: hidden;
+    display: none !important;
+}
+
+@mixin square($value) {
+    width: $value;
+    height: $value;
+}
+
+@mixin flex($value) {
+    flex: 0 0 $value; 
+    max-width: $value;
+    -ms-flex: 0 0 $value; 
+    -webkit-box-flex: 0; 
+}
+
+@mixin external-login-btn($icon) {
+    background-color: rgb(255, 255, 255) !important;
+    color: #707070 !important;
+    border: 1px solid currentColor !important;
+    max-width: 345px;
+    height: 70px;
+    font-size: 18px;
+    @include rounded(60px);
+
+    &::before {
+        content: '';
+        left: 16px;
+        background-size: contain !important;
+        background: url(../images/#{$icon}.png);
+        background-repeat: no-repeat;
+        @include square(38px);
+    }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+@mixin scrollbar(
+    $width: 0, 
+    $track: transparent, 
+    $thumb: rgb(186, 186, 186),
+    $hover: rgb(100, 100, 100)
+) {
+    &::-webkit-scrollbar {
+        width: $width;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $track;
+    }   
+
+    &::-webkit-scrollbar-thumb {
+        background: $thumb;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $hover;
+    }
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -o-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+}
+
+@mixin box-shadow($value) {
+    -moz-box-shadow: $value;
+    -webkit-box-shadow: $value;
+    box-shadow: $value;
+}

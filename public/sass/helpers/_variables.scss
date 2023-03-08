@@ -1,0 +1,78 @@
+// COLORS
+
+$main-background-color: rgba(33, 36, 41, 1);
+$main-green-color:rgb(99, 188, 0);
+$main-green-hover: rgb(30, 134, 36);
+$secondary-green-color: rgb(26, 179, 148);
+$green-light: rgb(58, 179, 150);
+$green-light-hover: rgb(31, 179, 132);
+$dark-green-color: rgb(20, 149, 13);
+$dark-green-hover: rgb(0, 118, 0);
+$delete-background-color: rgb(190, 0, 0);
+$delete-hover-background: rgb(131, 0, 0);
+$badge-red-color: rgb(217, 59, 59);
+$orange-light: rgb(255, 169, 123);
+$orange-light-hover: rgb(227, 144, 100);
+$orange: rgb(255, 146, 88);
+$orange-hover: rgb(227, 144, 100);
+$gray: rgb(51, 51, 51);
+$gray-hover: rgb(31, 31, 31);
+$blue: rgb(0, 172, 221);
+$blue-hover: rgb(0, 132, 170);
+$yellow: rgb(212, 180, 0);
+$yellow-hover: rgb(168, 143, 0);
+$warning-color: rgb(247, 165, 74);
+$active-tag: rgb(51, 116, 235);
+$acc-active: rgb(21, 126, 8);
+$acc-expired: rgb(255, 0, 0);
+$acc-trial: rgb(16, 109, 155);
+$acc-unpaid: rgb(196, 22, 28);
+$acc-dunning: rgb(255, 103, 0);
+$main-purple-color: rgb(126, 0, 209);
+
+// AMOUNT
+
+$amount: 0.1;
+
+// BORDER RADIUS
+
+$extra-small-border-radius: 10px;
+$small-border-radius: 12px;
+$medium-border-radius: 20px;
+$large-border-radius: 30px;
+$full-border-radius: 40px;
+
+// TRANSITIONS
+
+$main-transition: all 0.3s;
+$input-transition: all 0.2 ease-in;
+
+// FONTS
+
+// SIZE
+
+$main-font: 'Roboto Flex', sans-serif;
+$font-16: 16px;
+$font-30: 30px;
+$font-24: 24px;
+$font-20: 20px;
+$font-14: 14px;
+$font-12: 12px;
+$font-10: 10px;
+
+// WEIGHT
+
+$hairline-weight: 100;
+$thin-weight: 200;
+$slim-weight: 300;
+$large-weight: 400;
+$normal-weight: 500;
+$weight-medium: 600;
+$bold-weight: 700;
+$xbold-weight: 800;
+$black-weight: 900;
+
+// MEDIA QUERIES
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
