@@ -1,3 +1,29 @@
 <div class="container">
-    
+    <div class="form-box">
+        <%- include('../shared/dark-logo.ejs') %>
+        <form action="/signup" method="POST" enctype="multipart/form-data">
+            <h1>Create your account</h1>
+            <div class="file-picker">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image">
+            </div>
+            <div class="input-box">
+                <input type="text" name="email" placeholder="Email" autocomplete="off">
+                <span class="placeholder">Email</span>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" autocomplete="off">
+                <span class="placeholder">Password</span>
+            </div>
+            <div class="input-box">
+                <input type="password" name="retype-password" placeholder="Confirm Password" autocomplete="off">
+                <span class="placeholder">Confirm Password</span>
+            </div>
+            <button type="submit" class="btn outline">Create account</button>
+        </form>
+        <div class="bottom-info">
+            <p>Already have an account?</p>
+            <a href="/signin">Sign in</a>
+        </div>
+    </div>
 </div>

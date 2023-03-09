@@ -1,19 +1,51 @@
 const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
-      expressLayouts = require('express-ejs-layouts');
+      expressLayouts = require('express-ejs-layouts'),
+      multer = require('multer');
 
 const errorPageController = require('./controller/404');
 
+const authRoutes = require('./routes/auth'),
+      myAccountRoutes = require('./routes/my-account');
+
 const MONGODB_URI = 'mongodb+srv://admin:VfdHGYLA9QtCyYjC@cluster0.vsiavi9.mongodb.net/?retryWrites=true&w=majority';
     
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'images');
+    },
+    filename: (req, file, cb) => {
+      cb(null, new Date().toISOString() + '-' + file.originalname);
+    }
+  });
+
+const fileFilter = (req, file, cb) => {
+    if (
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/jpg' ||
+        file.mimetype === 'image/jpeg'
+    ) {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+
 const app = express();
 
+app.use(express.static('public'));
+app.use(
+    multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
+);
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(expressLayouts);
 app.set('layout', './layout/layout');
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(authRoutes);
+app.use('/my-account', myAccountRoutes);
 app.use(errorPageController.get404Page);
 
 const PORT = 8000;

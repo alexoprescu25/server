@@ -1,0 +1,69 @@
+#top-nav {
+    position: fixed; 
+    right: 10px;
+    top: 0;
+    padding: 10px;
+    @include box-shadow($card-box-shadow);
+    @include rounded(0 0 12px 12px);
+
+    .top-nav-container {
+        @extend %center-element;
+    
+        .profile-picture {
+            width: 40px;
+        }
+        
+        & > div {
+            position: relative;
+            margin: 0 10px;
+        }
+        
+        button {
+            display: block;
+            border: none;
+            background: transparent;
+            color: rgb(99, 115, 129);
+            cursor: pointer;
+            @include circle(40px);
+            @include transition($main-transition);
+        }
+        
+        button:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: scale(1.15);
+        }
+        
+        button svg {
+            font-size: $font-20;
+            @include transition($main-transition);
+        }
+        
+        .profile-picture {
+            @include square(40px);
+        }
+        
+        .profile-picture img {
+            object-fit: cover;
+            cursor: pointer;
+            @include circle(100%);
+            @include transition($main-transition);
+        }
+        
+        .profile-picture img:hover {
+            transform: scale(1.05);
+        }
+        
+        .ntf-wrapper .ntf-number {
+            position: absolute;
+            background: rgb(255, 86, 48);
+            text-align: center;
+            color: white;
+            right: 0;
+            font-size: $font-14;
+            line-height: 20px;
+            z-index: 2;
+            @include circle(20px);
+            pointer-events: none;
+        }
+    }
+}

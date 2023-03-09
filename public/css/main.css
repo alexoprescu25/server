@@ -1,6 +1,28 @@
+#auth .container .form-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#top-nav .top-nav-container, #auth .container .form-box .bottom-info, #auth .container .form-box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 *,
@@ -13,7 +35,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body * {
+body {
   font-family: "Roboto Flex", sans-serif;
 }
 
@@ -44,8 +66,18 @@ input:-webkit-autofill:active {
   background-color: rgb(242, 242, 242) !important;
 }
 
+img {
+  width: 100%;
+}
+
 .hidden {
   display: none !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 1024px) {
@@ -114,6 +146,305 @@ h4,
 h5 {
   margin-top: 5px;
   font-weight: 600;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 0;
+  border: 1px solid rgb(33, 36, 41);
+  background: rgb(33, 36, 41);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px 0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn.outline {
+  background: white;
+  color: rgb(33, 36, 41);
+  border: 1px solid currentColor;
+}
+.btn.outline:hover {
+  background: rgb(33, 36, 41);
+  color: white;
+}
+
+#auth .container .form-box {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  padding: 30px 0;
+}
+#auth .container .form-box .logo-container {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+#auth .container .form-box form {
+  flex-direction: column;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+#auth .container .form-box .input-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0;
+}
+#auth .container .form-box .input-box input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: 56px;
+  vertical-align: middle;
+  line-height: 56px;
+  padding: 0 22px;
+  border: 1px solid rgb(112, 112, 112);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+#auth .container .form-box .input-box input font {
+  family: inherit;
+  size: 16px;
+  weight: 400;
+}
+#auth .container .form-box .input-box input::placeholder {
+  visibility: hidden;
+}
+#auth .container .form-box .input-box input ~ span.placeholder {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  color: rgb(33, 36, 41);
+  pointer-events: none;
+  background: white;
+  padding: 0 4px;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+#auth .container .form-box .input-box input:hover, #auth .container .form-box .input-box input:focus, #auth .container .form-box .input-box input:not(:placeholder-shown) {
+  border: 1px solid rgb(33, 36, 41);
+}
+#auth .container .form-box .input-box input:focus ~ span.placeholder, #auth .container .form-box .input-box input:not(:placeholder-shown) ~ span.placeholder {
+  top: 0;
+  left: 20px;
+}
+#auth .container .form-box .bottom-info a {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(42, 117, 255);
+  margin: 0;
+  margin-left: 6px;
+}
+#auth .container .form-box .bottom-info a:hover {
+  text-decoration: underline;
+}
+
+#my-account-nav {
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  float: left;
+  margin-right: 20px;
+  background: rgb(33, 36, 41);
+  padding: 10px;
+  display: block;
+  box-sizing: initial;
+  -webkit-border-radius: 0 20px 20px 0;
+  -moz-border-radius: 0 20px 20px 0;
+  border-radius: 0 20px 20px 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#my-account-nav .nav-container {
+  width: 100%;
+  max-width: 210px;
+  margin: 0 auto;
+}
+#my-account-nav .nav-container ul {
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+}
+#my-account-nav .logo-container {
+  margin: 20px 0;
+}
+#my-account-nav:hover {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+}
+
+#my-account-nav .nav-container ul li a,
+#my-account-nav .nav-container ul li button {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 10px auto;
+  border: none;
+  padding: 10px 14px;
+  color: #e3e3e3;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 40px;
+  background: transparent;
+}
+
+#my-account-nav .nav-container ul li a svg,
+#my-account-nav .nav-container ul li button svg {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+#my-account-nav .nav-container ul li a:hover,
+#my-account-nav .nav-container ul li button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#my-account-nav .nav-container ul li a.active {
+  background: #004a77;
+  color: #c2e7ff;
+}
+
+#my-account-nav .nav-container ul li a.dropdown-link svg:last-child {
+  margin-left: auto;
+  display: inline-block;
+}
+
+#my-account-nav .nav-container ul li > ul {
+  transition: all 0.3s;
+  height: 0;
+  overflow: hidden;
+  display: none;
+  margin: 0;
+  width: 100%;
+  max-width: 180px;
+  margin-left: auto;
+}
+
+#my-account-nav .nav-container ul li > ul li a {
+  font-size: 14px;
+  margin: 0;
+}
+
+#my-account-nav .nav-container ul li:hover > ul {
+  height: 100%;
+  display: block;
+}
+
+#top-nav {
+  position: fixed;
+  right: 10px;
+  top: 0;
+  padding: 10px;
+  -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-border-radius: 0 0 12px 12px;
+  -moz-border-radius: 0 0 12px 12px;
+  border-radius: 0 0 12px 12px;
+}
+#top-nav .top-nav-container .profile-picture {
+  width: 40px;
+}
+#top-nav .top-nav-container > div {
+  position: relative;
+  margin: 0 10px;
+}
+#top-nav .top-nav-container button {
+  display: block;
+  border: none;
+  background: transparent;
+  color: rgb(99, 115, 129);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#top-nav .top-nav-container button:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.15);
+}
+#top-nav .top-nav-container button svg {
+  font-size: 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#top-nav .top-nav-container .profile-picture {
+  width: 40px;
+  height: 40px;
+}
+#top-nav .top-nav-container .profile-picture img {
+  object-fit: cover;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#top-nav .top-nav-container .profile-picture img:hover {
+  transform: scale(1.05);
+}
+#top-nav .top-nav-container .ntf-wrapper .ntf-number {
+  position: absolute;
+  background: rgb(255, 86, 48);
+  text-align: center;
+  color: white;
+  right: 0;
+  font-size: 14px;
+  line-height: 20px;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=main.css.map */

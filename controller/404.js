@@ -1,5 +1,6 @@
 exports.get404Page = (req, res, next) => {
     res.render('404', {
-        pageTitle: 'Page Not Found'
+        pageTitle: 'Page Not Found',    
+        pageId: 'error-page'
     })
 }

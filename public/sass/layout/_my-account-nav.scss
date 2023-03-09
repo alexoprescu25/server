@@ -1,0 +1,96 @@
+#my-account-nav {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    float: left;
+    margin-right: 20px;
+    background: $main-background-color;
+    padding: 10px;
+    display: block;
+    box-sizing: initial;
+    @include rounded(0 20px 20px 0);
+    @include transition($main-transition);
+
+    .nav-container {
+        width: 100%;
+        max-width: 210px;
+        margin: 0 auto;
+
+        ul {
+            padding: 0;
+            margin: 0 {
+                top: 40px;
+            }
+        }
+    }
+
+    .logo-container {
+        margin: 20px 0;
+    }
+
+    &:hover {
+        box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3),0px 2px 6px 2px rgba(0,0,0,.15);
+    }
+}
+
+#my-account-nav .nav-container ul li a,
+#my-account-nav .nav-container ul li button {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 10px auto;
+    border: none;
+    padding: 10px 14px;
+    color: #e3e3e3;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s;
+    border-radius: 40px;
+    background: transparent;
+}
+
+#my-account-nav .nav-container ul li a svg,
+#my-account-nav .nav-container ul li button svg {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+#my-account-nav .nav-container ul li a:hover,
+#my-account-nav .nav-container ul li button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#my-account-nav .nav-container ul li a.active {
+    background: #004a77;
+    color: #c2e7ff;
+}
+
+#my-account-nav .nav-container ul li a.dropdown-link svg:last-child {
+    margin-left: auto;
+    display: inline-block;
+}
+
+#my-account-nav .nav-container ul li > ul {
+    transition: all .3s;
+    height: 0;
+    overflow: hidden;
+    display: none;
+    margin: 0;
+    width: 100%;
+    max-width: 180px;
+    margin-left: auto;
+}
+
+#my-account-nav .nav-container ul li > ul li a {
+    font-size: 14px;
+    margin: 0;
+}
+
+#my-account-nav .nav-container ul li:hover > ul {
+    height: 100%;
+    display: block;
+}
