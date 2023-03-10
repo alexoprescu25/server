@@ -1,0 +1,43 @@
+#my-account {
+    .account-info {
+        width: 100%;
+        max-width: 600px;
+        padding: 40px;
+        margin: 30px;
+        flex-direction: column;
+        @extend %center-element;
+        @include box-shadow($card-box-shadow);
+        @include rounded($small-border-radius);
+
+        .profile-picture {
+            @include circle(200px);
+
+            img {
+                @include circle(100%);
+                @include transition($main-transition);
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        .info {
+            h1 {
+                display: block;
+                margin: 10px 0;
+                font: {
+                    size: $font-20;
+                    weight: $large-weight;
+                }
+            }
+
+            .user-role {
+                svg {
+                    color: #ffb800;
+                }
+            }
+        }
+    }
+}

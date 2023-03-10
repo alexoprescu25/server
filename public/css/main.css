@@ -7,7 +7,7 @@
   -webkit-transform: translate(-50%, -50%);
 }
 
-#top-nav .top-nav-container, #auth .container .form-box .bottom-info, #auth .container .form-box form {
+#my-account .account-info, #top-nav .top-nav-container a, #top-nav .top-nav-container, #auth .container .form-box .bottom-info, #auth .container .form-box form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,8 +383,7 @@ h5 {
   position: relative;
   margin: 0 10px;
 }
-#top-nav .top-nav-container button {
-  display: block;
+#top-nav .top-nav-container a {
   border: none;
   background: transparent;
   color: rgb(99, 115, 129);
@@ -399,11 +398,11 @@ h5 {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#top-nav .top-nav-container button:hover {
+#top-nav .top-nav-container a:hover {
   background: rgba(0, 0, 0, 0.1);
   transform: scale(1.15);
 }
-#top-nav .top-nav-container button svg {
+#top-nav .top-nav-container a svg {
   font-size: 20px;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -445,6 +444,93 @@ h5 {
   -moz-border-radius: 50%;
   border-radius: 50%;
   pointer-events: none;
+}
+
+#my-account .account-info {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  margin: 30px;
+  flex-direction: column;
+  -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+#my-account .account-info .profile-picture {
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+#my-account .account-info .profile-picture img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#my-account .account-info .profile-picture img:hover {
+  transform: scale(1.05);
+}
+#my-account .account-info .info h1 {
+  display: block;
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+#my-account .account-info .info .user-role svg {
+  color: #ffb800;
+}
+
+table {
+  margin: 40px 0;
+  border-radius: 12px;
+  width: 100%;
+}
+
+table thead {
+  background: #ededed;
+}
+
+thead th {
+  padding: 10px;
+}
+
+table tbody .profile-picture {
+  /*     width: 40px; */
+}
+
+table tbody tr td {
+  padding: 10px;
+  text-align: center;
+}
+
+table tbody .profile-picture img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+table tbody tr td.email a {
+  text-decoration: none;
+  color: #0082ff;
+}
+
+table tbody tr td.email a:hover {
+  text-decoration: underline;
+}
+
+table tbody tr td.role svg {
+  color: #ffb800;
 }
 
 /*# sourceMappingURL=main.css.map */

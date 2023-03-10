@@ -3,15 +3,21 @@
         <%- include('./white-logo.ejs') %>
         <ul>
             <li>
-                <a href="/dashboard" class="<%= path === '/home' ? 'active' : '' %>">
+                <a href="/my-account" class="<%= path === '/home' ? 'active' : '' %>">
                     <i class="fa-solid fa-house"></i>
                     Home
                 </a>
             </li>
             <li>
-                <a href="#" class="<%= path === '/my-account' ? 'active' : '' %>">
+                <a href="/my-account/account" class="<%= path === '/my-account' ? 'active' : '' %>">
                     <i class="fa-solid fa-user"></i>
                     My Account
+                </a>
+            </li>
+            <li>
+                <a href="/my-account/users" class="<%= path === '/users' ? 'active' : '' %>"> 
+                    <i class="fa-solid fa-users"></i>
+                    Users
                 </a>
             </li>
             <li>

@@ -18,22 +18,22 @@
             margin: 0 10px;
         }
         
-        button {
-            display: block;
+        a {
             border: none;
             background: transparent;
             color: rgb(99, 115, 129);
             cursor: pointer;
+            @extend %center-element;
             @include circle(40px);
             @include transition($main-transition);
         }
         
-        button:hover {
+        a:hover {
             background: rgba(0, 0, 0, 0.1);
             transform: scale(1.15);
         }
         
-        button svg {
+        a svg {
             font-size: $font-20;
             @include transition($main-transition);
         }

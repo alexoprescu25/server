@@ -13,4 +13,10 @@ router.post('/signup', authController.postUser);
 
 router.get('/signin', authController.getSignInPage);
 
+router.post('/signin', authController.postSignIn);
+
+//logout
+
+router.post('/logout', authController.postLogout);
+
 module.exports = router;

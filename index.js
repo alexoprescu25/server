@@ -2,21 +2,29 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
       expressLayouts = require('express-ejs-layouts'),
-      multer = require('multer');
+      multer = require('multer'),
+      path = require('path'),
+      session = require('express-session'),
+      MongoDBStore = require('connect-mongodb-session')(session);
+
+const MONGODB_URI = 'mongodb+srv://admin:VfdHGYLA9QtCyYjC@cluster0.vsiavi9.mongodb.net/?retryWrites=true&w=majority';
+
+const store = new MongoDBStore({
+    uri: MONGODB_URI,
+    collection: 'sessions'
+});
 
 const errorPageController = require('./controller/404');
 
 const authRoutes = require('./routes/auth'),
       myAccountRoutes = require('./routes/my-account');
-
-const MONGODB_URI = 'mongodb+srv://admin:VfdHGYLA9QtCyYjC@cluster0.vsiavi9.mongodb.net/?retryWrites=true&w=majority';
     
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'images');
+      cb(null, './images');
     },
     filename: (req, file, cb) => {
-      cb(null, new Date().toISOString() + '-' + file.originalname);
+      cb(null, new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname);
     }
   });
 
@@ -35,6 +43,7 @@ const fileFilter = (req, file, cb) => {
 const app = express();
 
 app.use(express.static('public'));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(
     multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
 );
@@ -43,6 +52,17 @@ app.set('views', 'views');
 app.use(expressLayouts);
 app.set('layout', './layout/layout');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+    secret: 'session-secret', 
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}))
+
+app.use((req, res, next) => {
+    res.locals.isAuthenticated = req.session.isLoggedIn;
+    next();
+})
 
 app.use(authRoutes);
 app.use('/my-account', myAccountRoutes);

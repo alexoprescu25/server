@@ -11,8 +11,11 @@ exports.getSignUpPage = (req, res, next) => {
 
 exports.postUser = async (req, res, next) => {
     const image = req.file;
-
-    console.log(image);
+    let imageUrl;
+    
+    if (image) {
+         imageUrl = image.path;
+    } 
 
     try {
         const userDoc = await User.findOne({ email: req.body.email });
@@ -23,6 +26,7 @@ exports.postUser = async (req, res, next) => {
                     const user = new User({
                         email: req.body.email,
                         password: hashedPassword,
+                        profilePicture: imageUrl,
                         role: 'user'
                     })
 
@@ -45,4 +49,33 @@ exports.getSignInPage = (req, res, next) => {
         pageTitle: 'Sign In',
         pageId: 'auth'
     })
+}
+
+exports.postSignIn =  async (req, res, next) => {
+    const userDoc = await User.findOne({ email: req.body.email });
+    if (userDoc) {
+        const password = req.body.password;
+        bcrypt.compare(password, userDoc.password)
+            .then(doMatch => {
+                if (doMatch) {
+                    req.session.isLoggedIn = true;
+                    req.session.user = userDoc;
+                    return req.session.save(err => {
+                        console.log(err);
+                        res.redirect('/my-account');
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    } else {
+        res.redirect('/signin')
+    }
+}
+
+exports.postLogout = (req, res, next) => {
+    req.session.destroy(() => {
+        res.redirect('/signin');
+    });
 }
