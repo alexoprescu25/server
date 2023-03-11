@@ -1,16 +1,38 @@
-<form action="/my-account/post-edit" method="POST">
-    <div class="input-box">
-        <input type="text" name="firstName" placeholder="firstName" autocomplete="off" value="<%= user.firstName ? user.firstName : '' %>">
-        <span class="placeholder">First Name</span>
+<form action="/my-account/post-edit" method="POST" class="edit-form">
+    <div class="form-box">
+        <div class="input-box">
+            <input type="text" name="firstName" placeholder="firstName" autocomplete="off" value="<%= user.firstName ? user.firstName : '' %>">
+            <span class="placeholder">First Name</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="lastName" placeholder="lastName" autocomplete="off" value="<%= user.lastName ? user.lastName : '' %>">
+            <span class="placeholder">Last Name</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="email" placeholder="Email" autocomplete="off" value="<%= user.email ? user.email : '' %>">
+            <span class="placeholder">Email</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="phoneNumber" placeholder="phoneNumber" autocomplete="off" value="<%= user.phoneNumber ? user.phoneNumber : '' %>">
+            <span class="placeholder">Phone Number</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="officePhone" placeholder="officePhone" autocomplete="off" value="<%= user.officePhone ? user.officePhone : '' %>">
+            <span class="placeholder">Office Phone</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="companyName" placeholder="companyName" autocomplete="off" value="<%= user.companyName ? user.companyName : '' %>">
+            <span class="placeholder">Company Name</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="address" placeholder="address" autocomplete="off" value="<%= user.address ? user.address : '' %>">
+            <span class="placeholder">Address</span>
+        </div>
+        <div class="input-box">
+            <input type="text" name="zip" placeholder="zip" autocomplete="off" value="<%= user.zip ? user.zip : '' %>">
+            <span class="placeholder">Zip</span>
+        </div>
+        <input type="hidden" name="userId" value="<%= user._id %>">
     </div>
-    <div class="input-box">
-        <input type="text" name="lastName" placeholder="lastName" autocomplete="off" value="<%= user.lastName ? user.lastName : '' %>">
-        <span class="placeholder">Last Name</span>
-    </div>
-    <div class="input-box">
-        <input type="text" name="email" placeholder="Email" autocomplete="off" value="<%= user.email ? user.email : '' %>">
-        <span class="placeholder">Email</span>
-    </div>
-    <input type="hidden" name="userId" value="<%= user._id %>">
-    <button type="submit">Save</button>
+    <button type="submit" class="btn-green">Save</button>
 </form>

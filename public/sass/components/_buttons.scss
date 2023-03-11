@@ -1,3 +1,19 @@
 .btn {
     @include button($margin: 20px 0);
 }
+
+.btn-green {
+    @include button($margin: 20px 0, $background: $main-green-color);
+
+    &:hover {
+        background: $main-green-hover;
+    }
+}
+
+.btn-danger {
+    @include button($margin: 20px auto, $background: $delete-background-color);
+
+    &:hover {
+        background: $delete-hover-background;
+    }
+}

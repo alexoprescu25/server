@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container acc">
     <div class="account-info">
         <div class="profile-picture">
             <% if (user.profilePicture.includes('images')) { %>
@@ -22,18 +22,13 @@
             </div>
         </div>
         <div class="buttons">
-            <a href="#">
-                <i class="fa-solid fa-user-pen"></i>
-                Edit
-            </a>
-            <a href="#">
+            <a href="#" class="btn-danger">
                 <i class="fa-solid fa-trash"></i>
                 Delete Account
             </a>
         </div>
     </div>
-    <div>
-        <h1>Edit</h1>
-        <%- include('./account/edit.ejs') %>
+    <div class="account-tabs">
+        <%- include('./account/tabs.ejs') %>
     </div>
 </div>

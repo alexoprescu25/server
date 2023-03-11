@@ -40,25 +40,41 @@ exports.getUserPage = (req, res, next) => {
         })
 }
 
-exports.postEditUser = async (req, res, next) => {
-    const { firstName, lastName, email, userId } = req.body;
+exports.postEditUser = (req, res, next) => {
+    const { 
+        firstName, 
+        lastName, 
+        email, 
+        userId, 
+        phoneNumber,
+        officePhone,
+        companyName,
+        address,
+        zip
+    } = req.body;
 
-    const user = await User.findOne({ _id: userId });
+    User.findOne({ _id: userId })
+        .then((user) => {
+            if (!user) {
+                res.redirect('/my-account');
+            }
 
-    if (user) {
-        user.firstName = firstName;
-        user.lastName = lastName;
-        user.email = email;
-        user.fullName = firstName + ' ' + lastName;
-
-        user.save()
-            .then(() => {
-                res.redirect('/my-account/account');
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    } else {
-        res.redirect('/my-account');
-    }
+            user.firstName = firstName;
+            user.lastName = lastName;
+            user.email = email;
+            user.fullName = firstName + ' ' + lastName;
+            user.phoneNumber = phoneNumber;
+            user.officePhone = officePhone;
+            user.companyName = companyName;
+            user.address = address;
+            user.zip = zip;
+        
+            return user.save();
+        })
+        .then(() => {
+            res.redirect('/my-account/account');
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }

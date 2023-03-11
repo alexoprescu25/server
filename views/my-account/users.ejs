@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="users">
+    <div class="manage-users">
         <table>
             <thead>
                 <tr>
@@ -19,6 +19,7 @@
                                 <% } else { %>
                                     <img src="<%= user.profilePicture %>" alt="<%= user.email %>">
                                 <% } %>
+                                <p><%= user.fullName ? user.fullName : user.email %></p>
                             </td>
                             <td class="email">
                                 <a href="mailto:<%= user.email %>"><%= user.email %></a>

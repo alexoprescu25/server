@@ -159,6 +159,8 @@ h5 {
   font-size: 16px;
   cursor: pointer;
   margin: 20px 0;
+  text-decoration: none;
+  text-align: center;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
@@ -175,6 +177,74 @@ h5 {
 .btn.outline:hover {
   background: rgb(33, 36, 41);
   color: white;
+}
+
+.btn-green {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 0;
+  border: 1px solid rgb(99, 188, 0);
+  background: rgb(99, 188, 0);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px 0;
+  text-decoration: none;
+  text-align: center;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn-green.outline {
+  background: white;
+  color: rgb(99, 188, 0);
+  border: 1px solid currentColor;
+}
+.btn-green.outline:hover {
+  background: rgb(99, 188, 0);
+  color: white;
+}
+.btn-green:hover {
+  background: rgb(30, 134, 36);
+}
+
+.btn-danger {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 0;
+  border: 1px solid rgb(190, 0, 0);
+  background: rgb(190, 0, 0);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px auto;
+  text-decoration: none;
+  text-align: center;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.btn-danger.outline {
+  background: white;
+  color: rgb(190, 0, 0);
+  border: 1px solid currentColor;
+}
+.btn-danger.outline:hover {
+  background: rgb(190, 0, 0);
+  color: white;
+}
+.btn-danger:hover {
+  background: rgb(131, 0, 0);
 }
 
 .input-box {
@@ -232,6 +302,88 @@ h5 {
 .input-box input:focus ~ span.placeholder, .input-box input:not(:placeholder-shown) ~ span.placeholder {
   top: 0;
   left: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tabs {
+  position: relative;
+  margin: 3rem 0;
+}
+
+.tabs::before,
+.tabs::after {
+  content: "";
+  display: table;
+}
+
+.tabs::after {
+  clear: both;
+}
+
+.tab {
+  float: left;
+  margin: 0 6px;
+}
+
+.tab-switch {
+  display: none;
+}
+
+.tab-label {
+  position: relative;
+  display: block;
+  line-height: 40px;
+  padding: 0 1.618em;
+  background: #F5F5F5;
+  color: rgb(33, 36, 41);
+  cursor: pointer;
+  top: 0;
+  border: 1px solid #BCBCBC;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.tab-label:hover {
+  top: -0.25rem;
+  transition: top 0.25s;
+}
+
+.tab-content {
+  position: absolute;
+  z-index: 1;
+  top: 2.75em;
+  left: 0;
+  padding: 1.618rem;
+  background: #fff;
+  color: #2c3e50;
+  opacity: 0;
+  transition: all 0.35s;
+  width: 100%;
+}
+
+.tab-switch:checked + .tab-label {
+  background: rgb(33, 36, 41);
+  color: #ffffff;
+  border-bottom: 0;
+  border-right: 0.125rem solid #fff;
+  transition: all 0.35s;
+  z-index: 1;
+  top: -0.0625rem;
+}
+
+.tab-switch:checked + label + .tab-content {
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.35s;
 }
 
 #auth .container .form-box {
@@ -414,16 +566,20 @@ h5 {
 }
 
 #top-nav {
-  position: fixed;
+  position: sticky;
   right: 10px;
   top: 0;
   padding: 10px;
+  z-index: 99;
   -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
   -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
   -webkit-border-radius: 0 0 12px 12px;
   -moz-border-radius: 0 0 12px 12px;
   border-radius: 0 0 12px 12px;
+  width: 200px;
+  margin: 0;
+  margin-left: auto;
 }
 #top-nav .top-nav-container .profile-picture {
   width: 40px;
@@ -595,9 +751,13 @@ h5 {
   background: white;
 }
 
+#my-account .container.acc {
+  display: flex;
+  justify-content: center;
+}
 #my-account .account-info {
   width: 100%;
-  max-width: 600px;
+  max-width: 440px;
   padding: 40px;
   margin: 30px;
   flex-direction: column;
@@ -643,81 +803,78 @@ h5 {
   width: 100%;
   margin: 20px 0;
 }
-#my-account .account-info .buttons a {
-  display: inline-block;
+#my-account .edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   width: 100%;
-  max-width: 200px;
-  padding: 10px 0;
-  text-align: center;
-  text-decoration: none;
-  margin: 6px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
+  max-width: 840px;
+}
+#my-account .edit-form .form-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+#my-account .edit-form .input-box {
+  margin: 10px;
+}
+#my-account .account-tabs {
+  width: 100%;
+}
+
+.manage-users {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
   border-radius: 30px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.manage-users table {
+  margin: 40px 0;
+  border-radius: 12px;
+  width: 100%;
+}
+.manage-users table thead {
+  background: #ededed;
+}
+.manage-users table thead th {
+  padding: 10px;
+  text-align: left;
+}
+.manage-users table tbody .profile-picture {
+  display: flex;
+  align-items: center;
+}
+.manage-users table tbody .profile-picture img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.manage-users table tbody tr {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#my-account .account-info .buttons a svg {
-  margin-right: 6px;
+.manage-users table tbody tr:hover {
+  -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
 }
-#my-account .account-info .buttons a:first-child {
-  color: rgb(99, 102, 241);
-  border: 1px solid currentColor;
-}
-#my-account .account-info .buttons a:first-child:hover {
-  background: rgb(99, 102, 241);
-  color: white;
-}
-#my-account .account-info .buttons a:last-child {
-  color: rgb(128, 0, 0);
-  border: 1px solid currentColor;
-}
-#my-account .account-info .buttons a:last-child:hover {
-  background: rgb(128, 0, 0);
-  color: white;
-}
-
-table {
-  margin: 40px 0;
-  border-radius: 12px;
-  width: 100%;
-}
-
-table thead {
-  background: #ededed;
-}
-
-thead th {
+.manage-users table tbody tr td {
   padding: 10px;
+  text-align: left;
 }
-
-table tbody .profile-picture {
-  /*     width: 40px; */
-}
-
-table tbody tr td {
-  padding: 10px;
-  text-align: center;
-}
-
-table tbody .profile-picture img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-table tbody tr td.email a {
+.manage-users table tbody tr td.email a {
   text-decoration: none;
   color: #0082ff;
 }
-
-table tbody tr td.email a:hover {
+.manage-users table tbody tr td.email a:hover {
   text-decoration: underline;
 }
-
-table tbody tr td.role svg {
+.manage-users table tbody tr td.role svg {
   color: #ffb800;
 }
 

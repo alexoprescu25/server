@@ -1,7 +1,12 @@
 #my-account {
+    .container.acc {
+        display: flex;
+        justify-content: center;
+    }
+
     .account-info {
         width: 100%;
-        max-width: 600px;
+        max-width: 440px;
         padding: 40px;
         margin: 30px;
         flex-direction: column;
@@ -44,42 +49,27 @@
             width: 100%;
             margin: 20px 0;
             @extend %center-element;
-            
-            a {
-                display: inline-block;
-                width: 100%;
-                max-width: 200px;
-                padding: 10px 0;
-                text-align: center;
-                text-decoration: none;
-                margin: 6px;
-                @include rounded($large-border-radius);
-                @include transition($main-transition);
-
-                svg {
-                    margin-right: 6px;
-                }
-
-                &:first-child {
-                    color: rgb(99, 102, 241);
-                    border: 1px solid currentColor;
-
-                    &:hover {
-                        background: rgb(99, 102, 241);
-                        color: white;
-                    }
-                } 
-
-                &:last-child {
-                    color: rgb(128 0 0);
-                    border: 1px solid currentColor;
-
-                    &:hover {
-                        background: rgb(128 0 0);
-                        color: white;
-                    }
-                }
-            }
         }
+    }
+
+    .edit-form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        max-width: 840px;
+
+        .form-box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .input-box {
+            margin: 10px;
+        }
+    }
+
+    .account-tabs {
+        width: 100%;
     }
 }

@@ -171,6 +171,8 @@
     font-size: $font-16;
     cursor: pointer;
     margin: $margin;
+    text-decoration: none;
+    text-align:center;
     @include rounded($large-border-radius);
     @include transition($main-transition);
 
