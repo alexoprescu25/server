@@ -1,0 +1,16 @@
+<form action="/my-account/post-edit" method="POST">
+    <div class="input-box">
+        <input type="text" name="firstName" placeholder="firstName" autocomplete="off" value="<%= user.firstName ? user.firstName : '' %>">
+        <span class="placeholder">First Name</span>
+    </div>
+    <div class="input-box">
+        <input type="text" name="lastName" placeholder="lastName" autocomplete="off" value="<%= user.lastName ? user.lastName : '' %>">
+        <span class="placeholder">Last Name</span>
+    </div>
+    <div class="input-box">
+        <input type="text" name="email" placeholder="Email" autocomplete="off" value="<%= user.email ? user.email : '' %>">
+        <span class="placeholder">Email</span>
+    </div>
+    <input type="hidden" name="userId" value="<%= user._id %>">
+    <button type="submit">Save</button>
+</form>

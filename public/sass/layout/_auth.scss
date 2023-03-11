@@ -24,45 +24,6 @@
                 }
             }
             
-            .input-box {
-                position: relative;
-                width: 100%;
-                max-width: 400px;
-                margin: 10px 0;
-
-                input {
-                    @include primary-input($padding: 0 22px);
-
-                    &::placeholder {
-                        visibility: hidden;
-                    }
-
-                    & ~ span.placeholder {
-                        position: absolute;
-                        left: 16px;
-                        top: 50%;
-                        @include transform(translateY(-50%));
-                        color: $main-background-color;
-                        pointer-events: none; 
-                        background: white;
-                        padding: 0 4px;
-                        @include transition($input-transition);
-                    }
-
-                    &:hover,
-                    &:focus,
-                    &:not(:placeholder-shown) {
-                        border: 1px solid $main-background-color;
-                    }
-
-                    &:focus ~ span.placeholder,
-                    &:not(:placeholder-shown) ~ span.placeholder {
-                        top: 0;
-                        left: 20px;
-                    } 
-                }
-            }
-
             .bottom-info {
                 @extend %center-element;
 
@@ -78,6 +39,52 @@
                         text-decoration: underline;
                     }
                 }
+            }
+            .file-picker {
+                input {
+                    visibility: hidden;
+                }
+
+                img {
+                    display: block;
+                    width: 200px;
+                    object-fit: cover;
+                    margin: 20px 0;
+                    @include rounded(50%);
+                }
+
+                label {
+                    display: block;
+                    background: #efefef;
+                    text-align: center;
+                    line-height: 100px;
+                    margin: 20px auto 0 auto;
+                    cursor: pointer;
+                    @include circle(100px);
+                    @include transition($main-transition);
+
+                    &:hover {
+                        transform: scale(1.05);
+                        background: #cecece;
+                    }
+                }
+            } 
+        }
+    }
+
+    .reset-pwd {
+        a {
+            color: rgb(42, 117, 255);
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin: 0 {
+                top: 20px;
+                bottom: 10px;
+            }
+
+            &:hover {
+                text-decoration: underline;
             }
         }
     }

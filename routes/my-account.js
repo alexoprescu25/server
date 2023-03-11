@@ -12,4 +12,6 @@ router.get('/account', isAuth, myAccountController.getMyAccountPage);
 
 router.get('/users', isAuth, myAccountController.getUserPage);
 
+router.post('/post-edit', myAccountController.postEditUser);
+
 module.exports = router;

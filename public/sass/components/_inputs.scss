@@ -1,0 +1,38 @@
+.input-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+
+    input {
+        @include primary-input($padding: 0 22px);
+
+        &::placeholder {
+            visibility: hidden;
+        }
+
+        & ~ span.placeholder {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            @include transform(translateY(-50%));
+            color: $main-background-color;
+            pointer-events: none; 
+            background: white;
+            padding: 0 4px;
+            @include transition($input-transition);
+        }
+
+        &:hover,
+        &:focus,
+        &:not(:placeholder-shown) {
+            border: 1px solid $main-background-color;
+        }
+
+        &:focus ~ span.placeholder,
+        &:not(:placeholder-shown) ~ span.placeholder {
+            top: 0;
+            left: 20px;
+        } 
+    }
+}

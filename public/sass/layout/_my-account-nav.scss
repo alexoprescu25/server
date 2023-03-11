@@ -18,10 +18,16 @@
         max-width: 210px;
         margin: 0 auto;
 
-        ul {
+        ul.user-nav {
             padding: 0;
             margin: 0 {
                 top: 40px;
+            }
+        }
+
+        .admin {
+            p {
+                color: #a7a7a7;
             }
         }
     }

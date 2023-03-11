@@ -7,6 +7,8 @@ const express = require('express'),
       session = require('express-session'),
       MongoDBStore = require('connect-mongodb-session')(session);
 
+const User = require('./model/User');
+
 const MONGODB_URI = 'mongodb+srv://admin:VfdHGYLA9QtCyYjC@cluster0.vsiavi9.mongodb.net/?retryWrites=true&w=majority';
 
 const store = new MongoDBStore({
@@ -61,6 +63,7 @@ app.use(session({
 
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
+    res.locals.user = req.session.user;
     next();
 })
 

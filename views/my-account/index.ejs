@@ -1,3 +1,7 @@
 <div class="container">
-    <h1>Hello from My Account</h1>
+    <% if (user.fullName) { %>
+        <h1>Hello, <span><%= user.fullName%></span>!</h1>
+    <% } else { %>
+        <h1>Hello, <span><%= user.email %></span>!</h1>
+    <% } %>
 </div>

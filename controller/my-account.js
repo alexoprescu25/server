@@ -39,3 +39,26 @@ exports.getUserPage = (req, res, next) => {
             console.log(err);
         })
 }
+
+exports.postEditUser = async (req, res, next) => {
+    const { firstName, lastName, email, userId } = req.body;
+
+    const user = await User.findOne({ _id: userId });
+
+    if (user) {
+        user.firstName = firstName;
+        user.lastName = lastName;
+        user.email = email;
+        user.fullName = firstName + ' ' + lastName;
+
+        user.save()
+            .then(() => {
+                res.redirect('/my-account/account');
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    } else {
+        res.redirect('/my-account');
+    }
+}

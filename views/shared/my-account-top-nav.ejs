@@ -11,8 +11,42 @@
                 <i class="fa-solid fa-user"></i>
             </a>
         </div>
-        <div class="profile-picture">
-            <img src="https://i.ibb.co/Fbyc7Mr/IMG-1114-Recovered.jpg" alt="Profile Picture">
+        <div class="profile-picture" onclick="toggleDropdown()">
+            <% if (user.profilePicture.includes('images')) { %>
+                <img src="/<%= user.profilePicture %>" alt="<%= user.email %>">
+            <% } else { %>
+                <img src="<%= user.profilePicture %>" alt="<%= user.email %>">
+            <% } %>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="close-btn" onclick="closeDropdown()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="dropdown-container">
+            <div class="user-info">
+                <div class="profile-picture">
+                    <% if (user.profilePicture.includes('images')) { %>
+                        <img src="/<%= user.profilePicture %>" alt="<%= user.email %>">
+                    <% } else { %>
+                        <img src="<%= user.profilePicture %>" alt="<%= user.email %>">
+                    <% } %>
+                </div>
+                <p><%= user.fullName ? user.fullName :  user.email %></p>
+            </div>
+            <div class="dropdown-links">
+                <a href="/my-account/account">My Account</a>
+                <a href="#">Subscription</a>
+            </div>
+        </div>
+        <div class="logout-btn">
+            <form action="/logout" method="POST">
+                <input type="hidden">
+                <button type="Submit">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Log Out
+                </button>
+            </form>
         </div>
     </div>
 </div>

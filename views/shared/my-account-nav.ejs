@@ -1,7 +1,7 @@
 <aside id="my-account-nav">
     <div class="nav-container">
         <%- include('./white-logo.ejs') %>
-        <ul>
+        <ul class="user-nav">
             <li>
                 <a href="/my-account" class="<%= path === '/home' ? 'active' : '' %>">
                     <i class="fa-solid fa-house"></i>
@@ -15,20 +15,24 @@
                 </a>
             </li>
             <li>
-                <a href="/my-account/users" class="<%= path === '/users' ? 'active' : '' %>"> 
-                    <i class="fa-solid fa-users"></i>
-                    Users
+                <a href="/my-account/settings" class="<%= path === '/settings' ? 'active' : '' %>">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
                 </a>
             </li>
-            <li>
-                <form action="/logout" method="POST">
-                    <input type="hidden">
-                    <button type="Submit">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Log Out
-                    </button>
-                </form>
-            </li>
         </ul>
+        <% if (user.role === 'admin') { %>
+            <div class="admin">
+                <p>Admin</p>
+                <ul class="admin-nav">
+                    <li>
+                        <a href="/my-account/users" class="<%= path === '/users' ? 'active' : '' %>"> 
+                            <i class="fa-solid fa-users"></i>
+                            Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        <% } %>
     </div>
 </aside>

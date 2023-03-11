@@ -39,5 +39,47 @@
                 }
             }
         }
+
+        .buttons {
+            width: 100%;
+            margin: 20px 0;
+            @extend %center-element;
+            
+            a {
+                display: inline-block;
+                width: 100%;
+                max-width: 200px;
+                padding: 10px 0;
+                text-align: center;
+                text-decoration: none;
+                margin: 6px;
+                @include rounded($large-border-radius);
+                @include transition($main-transition);
+
+                svg {
+                    margin-right: 6px;
+                }
+
+                &:first-child {
+                    color: rgb(99, 102, 241);
+                    border: 1px solid currentColor;
+
+                    &:hover {
+                        background: rgb(99, 102, 241);
+                        color: white;
+                    }
+                } 
+
+                &:last-child {
+                    color: rgb(128 0 0);
+                    border: 1px solid currentColor;
+
+                    &:hover {
+                        background: rgb(128 0 0);
+                        color: white;
+                    }
+                }
+            }
+        }
     }
 }

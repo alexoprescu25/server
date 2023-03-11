@@ -2,6 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    firstName: {
+        type: String,
+        default: ''
+    },
+    lastName: {
+        type: String,
+        default: ''
+    },
+    fullName: {
+        type: String,
+        default: ''
+    },
     email: {
         type: String,
         required: true
@@ -23,7 +35,9 @@ const userSchema = new Schema({
     registrationDate: {
         type: Date,
         default: Date.now()
-    }
+    },
+    resetToken: String,
+    resetTokenExpiration: Date
 })
 
 module.exports = mongoose.model('User', userSchema);
